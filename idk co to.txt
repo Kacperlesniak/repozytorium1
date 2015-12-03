@@ -1,5 +1,5 @@
 SNAKE WAR - I
-
+blablablabla
 
 #include <graphics.h>
 #include <iostream.h>
@@ -7,6 +7,7 @@ SNAKE WAR - I
 #include <dos.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 //#pragma warn -wrch
 #define MAX      50
