@@ -1,0 +1,31 @@
+void QuickSort<T>(IList<T> items, int left, int right)
+    where T : IComparable<T>
+{
+    int i = left;
+    int j = right;
+    T x;
+
+    x = items[(left + right) >> 1];
+    do
+    {
+        while (items[i].CompareTo(x) < 0) i++; //items[i] < x
+        while (items[j].CompareTo(x) > 0) j--; //items[j] > x
+
+        if (i <= j)
+        {
+            Swap<T>(items, i, j);
+            i++; j--;
+        }
+    }
+    while (i < j);
+
+    if (left < j) QuickSort(items, left, j);
+    if (right > i) QuickSort(items, i, right);
+}
+
+void Swap<T>(IList<T> list, int left, int right)
+{
+    T temp = list[left];
+    list[left] = list[right];
+    list[right] = temp;
+}
