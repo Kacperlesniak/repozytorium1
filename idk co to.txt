@@ -67,8 +67,8 @@ else
 _Snake [0].x = WinMinX + 10;
 _Direction = Forward;
 }
-//_Snake [0].x = WinMinX + 10;
-_Snake [0].y = WinMinY + 10;
+//_Snake [0].x = WinMinX - 10;
+_Snake [0].y = WinMinY - 10;
 _color = color;
 _MaxSize = size;
 _player = player;
