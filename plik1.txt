@@ -1,0 +1,39 @@
+asfasfasfas#include <cstdio>
+
+uasdasdasffasfasfs
+{
+    bool czy;
+    int n, ile;
+    scanf("%d", &n);
+    int tab[n];
+    for (int i = 0; i < n; i++)
+        scanf("%d", &tab[i]);
+
+    int wynik = 0;
+    /*Przyszla pora na dwie petle, jedna wewnatrz drugiej.*/
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            if (i != j) /*pamietajmy, ze rozwazamy tylko rozne elementy ciagu*/
+            {
+                /*Bedziemy analizowac liczby od 2 do mniejszej z liczb
+                (tab[i],tab[j]).*/
+                if (tab[i] > tab[j])
+                    ile = tab[j];
+                else
+                    ile = tab[i];
+                czy = true;
+                /*Sprawdzamy, czy ktorakolwiek z tych liczb nie dzieli tab[i]
+                i tab[j] naraz - jezeli tak jest, to ta para liczb nie jest
+                wzglednie pierwsza.*/
+                for (int k = 2; k <= ile; k++)
+                    if (tab[i]%k == 0 && tab[j]%k == 0)
+                        czy = false;
+
+                /*Jezeli wszystkie sprawdzane liczby nie dzielily tab[i]
+                i tab[j] naraz, to te liczby sa wzglednie pierwsze.*/
+                if (czy)
+                    wynik++;
+            }
+    printf("%d\n", wynik);
+    return 0;
+}
