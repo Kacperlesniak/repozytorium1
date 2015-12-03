@@ -1,0 +1,84 @@
+#include <iostream.h>
+#include <string.h>
+#include <conio.h>
+
+
+int main()
+ {
+char rzym[10];
+cout<<"Podaj liczbe w postaci rzymskiej : ";
+cin>>rzym;
+int arabska=0,blad=0;
+
+//---------- SPRAWDZANIE POPRAWNOSCI ----------
+
+for (int i=0;i<strlen(rzym);i++)
+{if ((rzym[i]!='D')&&(rzym[i]!='L')&&(rzym[i]!='V')&&
+	  (rzym[i]!='M')&&(rzym[i]!='X')&&(rzym[i]!='I')&&
+	  (rzym[i]!='C'))blad=1;};
+
+
+
+for (i=0;i<strlen(rzym);i++)
+{
+
+//------------------- D L V M ---------
+  if (rzym[i]=='D') arabska+=500;else
+  if (rzym[i]=='L') arabska+=50;else
+  if (rzym[i]=='V') arabska+=5;else
+  if (rzym[i]=='M') arabska+=1000;else
+
+//-------------------- I  -----------
+ if (rzym[i]=='I')
+ {
+  if (i<strlen(rzym))
+	{
+	switch (rzym[i+1]){
+	 case 'X': {arabska+=9;i++;break;}
+	 case 'V': {arabska+=4;i++;break;}
+	 default : {arabska+=1;break;}}
+	}else arabska+=1;
+ }else
+//-------------------- C  -----------
+ if (rzym[i]=='C')
+ {
+  if (i+1<strlen(rzym))
+	{switch (rzym[i+1]){
+	 case 'M': {arabska+=900;i++;break;}
+	 case 'D': {arabska+=400;i++;break;}
+	 default : {arabska+=100;break;}}
+	}else arabska+=100;
+ }else
+//-------------------- X  -----------
+
+ if (rzym[i]=='X')
+ {
+  if (i+1<strlen(rzym))
+	{switch (rzym[i+1]){
+	 case 'C': {arabska+=90;i++;break;}
+	 case 'L': {arabska+=40;i++;break;}
+	 default : {arabska+=10;break;}}
+	}else arabska+=10;
+
+ }
+}
+if (blad=0)
+cout<<"\nLiczba "<<rzym<<" w postaci arabskiej wynosi : "<<arabska;else
+cout<<"\nLiczba zostala blednie wprowadzona !";
+getch();
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//algorytm sciagniety ze strony http://PlayCOM.w.interia.pl
