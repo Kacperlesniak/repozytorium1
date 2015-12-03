@@ -15,7 +15,7 @@ int arabska=0,blad=0;
 for (int i=0;i<strlen(rzym);i++)
 {if ((rzym[i]!='D')&&(rzym[i]!='L')&&(rzym[i]!='V')&&
 	  (rzym[i]!='M')&&(rzym[i]!='X')&&(rzym[i]!='I')&&
-	  (rzym[i]!='C'))blad=1;};
+	  (rzym[i+1]!='C'))blad=1;};
 
 
 
