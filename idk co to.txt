@@ -1,5 +1,5 @@
 SNAKE WAR - I
-blabla
+blablablabla
 
 #include <graphics.h>
 #include <iostream.h>
